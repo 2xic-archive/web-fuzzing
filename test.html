@@ -1,0 +1,41 @@
+
+
+<!--
+	this is a dynamic page. test the explore on it.
+!-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test page</title>
+</head>
+<body>
+
+	<h1>What is a dynamic page?</h1>
+
+	<button onclick="test()">test1</button>
+	<button id="removeme" onclick="test2()">test2</button>
+
+	<script type="text/javascript">
+		function test(){
+
+			var elem = document.getElementById("removeme");
+			elem.parentNode.removeChild(elem);
+
+
+			var new_element = document.createElement("h1");
+			new_element.innerText = "test";
+			document.body.appendChild(new_element);
+		}
+
+		function test2(){
+			for(var i = 0; i < 10; i++){
+				var new_element = document.createElement("h1");
+				new_element.innerText = "test" + i;
+				document.body.appendChild(new_element);
+			}
+		}
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+{
+  "manifest_version": 4,
+  "name": "coverager",
+  "version": "4",
+  "permissions": [
+	"alarms",
+	"background",
+	"cookies",
+	"history",
+	"management",
+	"topSites",
+	"tabs",
+	"webNavigation",
+	"unlimitedStorage",
+	"activeTab",
+	"storage",
+	"webRequest",
+	"webRequestBlocking",
+	"debugger",
+	"declarativeContent"
+ ],
+  "browser_action": {
+	  "default_popup": "popup.html"
+  },
+  "background": { 
+	"scripts": ["socket.io.min.js", "utils.js", "config.js", "messagePassing.js"]
+  },"content_scripts": [
+		{
+		  "exclude_matches": ["*://*.youtube.com/*", "*://*.google.com/*"],
+		  "matches": [ "http://*/*", "https://*/*", "http://localhost/*", "file://*"],
+		  "js":["jquery-3.2.1.min.js", "Content.js", "hash.js", "explore.js"],
+		  "run_at": "document_end"          
+		},{
+		  "matches":    ["*://*/*"],
+		  "js":         ["overwritePage.js"],
+		  "run_at":     "document_start",
+		  "all_frames": true
+		}
+	]
+}

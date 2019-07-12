@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Results</title>
+</head>
+
+<style type="text/css">
+	form{
+		display: inline;
+	}
+	button{
+		min-width: 25%;
+		width: 25%;
+	}
+</style>
+
+
+<body>
+	<a href="index.html">Home</a>
+	<h1>Results</h1>
+	<ul>
+		{% for item in data %}
+			<li><a href={{item.url}}>{{item.url}}</a> </li>
+		{% endfor %}
+	</ul>
+
+	{% for item in search %}
+		<form action="./search" method="get">
+			<input name="q" id="searchbox" placeholder="search" value="{{item.query}}" type="hidden">
+			<input name="p" id="searchbox" placeholder="page" value={{item.value}} type="hidden">
+			<button>{{item.name}}</button>
+		</form>
+	{% endfor %}
+</body>
+</html>

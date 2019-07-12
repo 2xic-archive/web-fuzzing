@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search</title>
+</head>
+
+<style type="text/css">
+	input{
+		width: 75%;
+		height: 20px;
+	}
+
+	html, body { 
+		height: 100%; 
+		width: 100%; 
+		margin: 0; 
+	}
+
+	form, div{
+		display: flex; 
+		flex-direction: column;
+		align-items: center; 
+		justify-content: center;
+	}
+
+	div#full{
+		height:100%;
+		min-height: 100%;
+	}
+
+	form{
+		min-width: 100%;
+		width: 100%;
+	}
+
+	h4{
+		display: block;
+	}
+
+</style>
+<body>
+
+	<div id="full">
+		<h4>Simple search, we use sql LIKE, use wildcards like % to get precise results</h4>
+		<form action="./search" method="get">
+			<input name="q" id="searchbox" placeholder="search">
+		</form>
+	</div>
+
+</body>
+</html>
